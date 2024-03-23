@@ -6,6 +6,8 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\FluentController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\SessionController;
+use App\Http\Controllers\PostController;
 
 
 /*
@@ -35,10 +37,18 @@ Route::get('/delete-post/{id}', [ClientController::class, 'deletePost'])->name('
 
 Route::get('/Fluent-string', [FluentController::class, 'index'])->name('fluent.index');
 
-Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::get('/login', [LoginController::class, 'login'])->name('login')->middleware('checkLogin');
 
 Route::post('/login', [LoginController::class, 'process_login'])->name('process_login');
 
+Route::get('/session/get', [SessionController::class, 'getSessionData'])->name('getSessionData');
+Route::get('/session/set', [SessionController::class, 'storeSessionData'])->name('storeSessionData');
+Route::get('/session/destroy', [SessionController::class, 'deleteSessionData'])->name('deleteSessionData');
 
-
-
+Route::get('/posts', [PostController::class, 'getAllPost'])->name('getAllPost');
+Route::get('/form-insert', [PostController::class, 'createPost'])->name('form-insert');
+Route::post('/process-insert', [PostController::class, 'storePost'])->name('process-insert');
+Route::get('/view-post/{id}', [PostController::class, 'showPost'])->name('view-post');
+Route::get('/form-edit/{id}', [PostController::class, 'editPost'])->name('form-edit');
+Route::put('/process-update/{id}', [PostController::class, 'updatePost'])->name('process-update');
+Route::delete('/delete-post/{id}', [PostController::class, 'deletePost'])->name('delete-post');

@@ -1,64 +1,47 @@
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+link khóa học: https://www.youtube.com/playlist?list=PLz_YkiqIHesvWMGfavV8JFDQRJycfHUvD;
 
-## About Laravel
+**********\*\*bài 1: tôi bắt đầu học về blade tại đó sử dụng php artisan make component Header ( x-header để hiển thị thông tin);
+php artisan make:component header
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+-   đầu tiên code sẽ vào component Header ở app sau đó code truyền tới component header ở resource rồi sau đó trả về welcome
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+******\*\*\***bài 2: học http client (CRUD với http : sử dụng json để lấy api mẫu sau đó thực hiện CRUD) (productController)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+********\*\*\*bài 3 Fluent Strings: cung cấp 1 loạt các hàm làm việc với chuổi như upper trim lower, slug , title replace ... (FluentController)
 
-## Learning Laravel
+************\*bài 4: Stub Customization
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+-   "stub" thường là các file template được sử dụng để tạo các thành phần mới của ứng dụng.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**************bài 5: HTTP Requests and Html Form : áp dụng chó form method action ... (Login controller)
 
-## Laravel Sponsors
+**************bài 6: Form Validation thực hiện ngay validate ở loginController chứ k cần tạo Requests
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+**************bài 7: Middleware
 
-### Premium Partners
+-   Middleware checkLoginMiddleware được sử dụng để kiểm tra trạng thái đăng nhập của người dùng trước khi họ truy cập vào route được bảo vệ.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+tạo file middleware để kiểm tra bằng cách php artisan make:middleware CheckLoginMiddleware
 
-## Contributing
+-   sau đó vào thư mục middleware rồi vào file vừa tạo, code logic để sử lí
+-   vào kernel để thêm name space của middleware vừa tạo.
+-   vào route -> web để chọn chỗ muốn kiểm tra.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+**************bài 8 : Http Session
+- tạo SessionController
+- có phương thức getSessionData : kiểm tra xem có dữ liệu nào trong session không nếu không có thì thông báp, có thì in ra dữ liệu
+- phương thức setSessionData : thêm dữ liệu đã được định nghĩa sẵn.
+- phương thứ removedSessionData : xóa dữ liệu đã được thêm.
+- vào route tạo các Route để điều hướng đến các phương thức ở trong SessionControllers.
 
-## Code of Conduct
+**************bài 9 : Start with Database
+- vào file env để kết nối database : learnlaravel8india
+- lên db tạo bảng posts với 3 cột id title body
+- sử dụng query builder để kết nối DB::table
+- trả dữ liệu về page post
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+**************bài 9 : Database Query Builder and CRUD Operation
+- sử dụng query builder để hoạt động CRUD
+- thao tác bên PostControllers
