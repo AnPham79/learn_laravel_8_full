@@ -45,3 +45,26 @@ bài 9 : Start with Database
 bài 9 : Database Query Builder and CRUD Operation
 - sử dụng query builder để hoạt động CRUD
 - thao tác bên PostControllers
+
+bài 10: sử dụng join như inner join ,leftJoin,rightJoin
+- tạo bảng user sau đó bảng post trước đó đã tạo liên kết với user thông qua khóa ngoại user_id
+- Qua bên post Controller tạo 3 phương thức leftJoin, innerJoin và rightJoin
+- sau đo qua route tạo điều hướng để thấy
+
+bài 11: model
+- tạo model bằng cách chạy câu lệnh php artisan make:model tên_model
+- vào trong post tạo 1 protected $tabel = post sau đó qua controller post use nó
+- viết phương thức get all sản phẩm
+
+bài 12: migrations
+- có 3 lệnh thường sài đó là 
++ php artisan migrate để thực thi đẩy các bảng lên cơ sở dữ liệu.
++ php artisan migrate:rollback để hoàn tác tác vụ ví dụ như bạn đẩy bảng lên thì nhấn rollback để undo lại ( đồng nghĩa với việc bạn chưa đẩy bất kì bảng nào lên csdl).
++ php artisan refresh tương ứng với việc làm trắng dữ liệu, xóa toàn bộ dữ liệu trên database
+
+bài 13: Seeders giúp bạn tạo dữ liệu mẫu để phát triển và kiểm thử ứng dụng của mình mà không cần phải thêm dữ liệu thủ công mỗi lần.
+- chạy câu lệnh php artisan make:seeder PostTableSeeder
+- sau đó chạy câu lệnh php artisan db:seed để khởi chạy câu lệnh load dữ liệu mẫu
+- dùng lệnh php artisan migrate:fresh --seed
+
+bài 14: blade template

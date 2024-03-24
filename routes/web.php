@@ -52,3 +52,28 @@ Route::get('/view-post/{id}', [PostController::class, 'showPost'])->name('view-p
 Route::get('/form-edit/{id}', [PostController::class, 'editPost'])->name('form-edit');
 Route::put('/process-update/{id}', [PostController::class, 'updatePost'])->name('process-update');
 Route::delete('/delete-post/{id}', [PostController::class, 'deletePost'])->name('delete-post');
+
+// join
+
+Route::get('/inner-join', [PostController::class, 'innerJoinCaluse'])->name('post.inner-join');
+Route::get('/left-join', [PostController::class, 'innerJoinCaluse'])->name('post.left-join');
+Route::get('/right-join', [PostController::class, 'innerJoinCaluse'])->name('post.right-join');
+
+// models
+Route::get('/get-prd-by-model', [PostController::class, 'getAllProductByModel'])->name('post.get-prd-by-model');
+
+// blade
+Route::get('/test', function() {
+    return view('test');
+});
+
+Route::get('/home', function() {
+    return view('index');
+});
+
+Route::get('/about', function() {
+    return view('about');
+});
+Route::get('/contact', function() {
+    return view('contact');
+});

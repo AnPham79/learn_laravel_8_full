@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Post;
 
 class PostController extends Controller
 {
@@ -65,5 +66,36 @@ class PostController extends Controller
         $data = DB::table('post')->get();
 
         return view('post', ['data' => $data])->with('notifications', 'Xóa sản phẩm thành công');
+    }
+
+    public function innerJoinCaluse() {
+        $request = DB::table('user')
+        ->join('post', 'user.id', '=', 'post.user_id')
+        ->select('user.name', 'post.title', 'post.body')
+        ->get();
+
+        return $request;
+    }
+
+    public function leftJoinCaluse() {
+        $request = DB::table('user')
+        ->leftJoin('post', 'user.id', '=', 'post.user_id')
+        ->get();
+
+        return $request;
+    }
+
+    public function rightJoinCaluse() {
+        $request = DB::table('user')
+        ->rightJoin('post', 'user.id', '=', 'post.user_id')
+        ->get();
+
+        return $request;
+    }
+
+    public function getAllProductByModel() {
+        $post = Post::all();
+
+        return $post;
     }
 }
