@@ -68,3 +68,34 @@ bài 13: Seeders giúp bạn tạo dữ liệu mẫu để phát triển và ki�
 - dùng lệnh php artisan migrate:fresh --seed
 
 bài 14: blade template
+- tạo master để lưu kết nối
+- sau đó qua page khác include là đc
+
+bài 15: pagingate
+- đầu tiên vào dataseeder để tạo dữ liệu mẫu trước.
+- tạo controller paginate gọi đến model user::paginate(số sản phẩm trên 1 trang)
+- khai báo thư viện hổ trợ paginate + với Pahinator::bootrap
+
+bài 16: upload file
+- tạo controller upload file
+- sử dụng $request->file->store('public')
+
+bài 17: Localization set đa ngôn ngữ cho trang web
+- bằng cách zô lang để chỉnh sửa và ra route để chỉnh lại đường dẫn
+
+bài 18: Facades
+-Facades trong Laravel là một phần của hệ thống Service Container của Laravel và được sử dụng để cung cấp một cách tiện lợi để truy cập các dịch vụ (services) của ứng dụng mà không cần phải tạo ra các đối tượng mới hoặc sử dụng các phương thức tĩnh trực tiếp từ các lớp. Facades cung cấp một cơ chế "static-like" để truy cập vào các dịch vụ này mà không cần phải lấy chúng từ Service Container mỗi lần.
+- service provider thì là đăng kí dịch vụ
+- tạo PaymentGateway ở App
+- trong đó tạo 2 file là Paymment và PaymentFacede
+- trong payment thì thông báo thực hiện thanh toán còn trong PaymentFacede thì tạo 1 hàm extend từ facede và trả về payment
+- sau đó tạo 1 provider có tên là PaymentServiceProvider để thực hiện sử lí 
+- vào đó có phương thức rigister để đăng kí service $this->app gọi tới bằng singleton thực hiện tạo 1 service có tên là Payment và đảm bảo rằng chỉ có duy nhất 1 dịch vụ đó để sử dụng cho cả ứng dụng.
+
+bài 19: page 404 not found khi truy cập page không tồn tại
+- trong blade tạo 1 thư mục tên errors -> file 404.blade sau đó code page thông báo, chỉ vậy là xong
+- khi nhập sai đường dẫn trên http thì sẽ thông báo ra page 404
+
+bài 20: Send email, using gmail
+
+

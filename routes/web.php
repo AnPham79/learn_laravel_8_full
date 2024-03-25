@@ -8,6 +8,12 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\SessionController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PaginateController;
+use App\Http\Controllers\UploadControler;
+use App\Http\Controllers\MailController;
+use Illuminate\Support\Facades\App;
+use App\paymentGateway\Payment;
+
 
 
 /*
@@ -21,7 +27,13 @@ use App\Http\Controllers\PostController;
 |
 */
 
-Route::get('/', [ProductController::class, 'index' ])->name('index');
+// Route::get('/{locale}', function($locale) {
+//     App::setlocale($locale);
+//     return view('welcome');
+// });
+Route::get('/', function() {
+    return view('welcome');
+});
 
 Route::get('/user', [UserController::class, 'index' ])->name('index');
 
@@ -77,3 +89,19 @@ Route::get('/about', function() {
 Route::get('/contact', function() {
     return view('contact');
 });
+
+// paginators
+
+Route::get('/paginators', [PaginateController::class, 'getAllUser'])->name('paginators');
+
+// upload file
+Route::get('/uploads-file', [UploadControler::class, 'UploadForm'])->name('upload.UploadForm');
+Route::post('/uploads-file', [UploadControler::class, 'UploadFile'])->name('upload.UploadFile');
+
+// facede and provider
+Route::get('/payment', function() {
+    return Payment::process();
+});
+
+// gửi mail
+Route::get('/send-mail', [MailController::class, 'sendMail']);
