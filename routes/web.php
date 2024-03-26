@@ -11,6 +11,8 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\PaginateController;
 use App\Http\Controllers\UploadControler;
 use App\Http\Controllers\MailController;
+use App\Http\Controllers\StudentController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\App;
 use App\paymentGateway\Payment;
 
@@ -105,3 +107,17 @@ Route::get('/payment', function() {
 
 // gửi mail
 Route::get('/send-mail', [MailController::class, 'sendMail']);
+
+// eloquent
+
+Route::group(['prefix' => 'student', 'as' => 'student.'], function() {
+    Route::get('/', [StudentController::class, 'index'])->name('index');
+    Route::get('/create', [StudentController::class, 'create'])->name('create');
+    Route::post('/create', [StudentController::class, 'store'])->name('store');
+    Route::get('/edit/{id}', [StudentController::class, 'edit'])->name('edit');
+    Route::put('/edit/{id}', [StudentController::class, 'update'])->name('update');
+    Route::get('/destroy/{id}', [StudentController::class, 'destroy'])->name('destroy');
+});
+
+Route::get('/add-role', [RoleController::class, 'addRole'])->name('addRole');
+Route::get('/add-student', [RoleController::class, 'addStudent'])->name('addStudent');

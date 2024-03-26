@@ -1,17 +1,15 @@
 <?php
 
 namespace Database\Seeders;
-use Database\Seeders\PostTableSeeder;
-use Illuminate\Support\Str;
-use Faker\Factory as Faker;
-use Illuminate\Support\Facades\DB;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Faker\Factory as Faker;
 
-class DatabaseSeeder extends Seeder
+class StudentSeeder extends Seeder
 {
     /**
-     * Seed the application's database.
+     * Run the database seeds.
      *
      * @return void
      */

@@ -97,5 +97,23 @@ bài 19: page 404 not found khi truy cập page không tồn tại
 - khi nhập sai đường dẫn trên http thì sẽ thông báo ra page 404
 
 bài 20: Send email, using gmail
+- vào file env chỉnh email (email cho phép truy cập ứng dụng không an toàn)
+- tạo 1 file MailController để chứa dữ liệu mail cũng như truy vấn đến thư mục Mail->TestMail để thực thi gửi mail
+- nói về thư mục Mail->TestMail thì ta sẽ tạo bằng PHP artisan make:mail TestMail rồi sử lí gửi mail 
+return $this->subject('Test gửi Mail từ Anh An Lão Gia')->view('email.TestMail');
+
+bài 21: eloquent
+- sẽ giống với query builder nhưng cách viết khác nhau, hiệu xuất khác nhau, lợi hại khác nhau.
+
+bài 22: Eloquent CRUD Operation
+
+bài 23 eloquent relation ship 1-1
+- belongto cho cho bảng liển kết và hasOne cho bảng đc liên kết
+
+bài 24 eloquent relation ship 1-n
+- belongto cho cho bảng liển kết và hasMany cho bảng đc liên kết
+
+bài 25 eloquent relation ship n-n
+- roles()->attach() để hiện mối mang hệ nhiều nhìu.
 
 
