@@ -116,4 +116,24 @@ bài 24 eloquent relation ship 1-n
 bài 25 eloquent relation ship n-n
 - roles()->attach() để hiện mối mang hệ nhiều nhìu.
 
+bài 26: Export Data in Excel and CSV
+- chạy lệnh composer require maatwebsite/excel để tải package
+- vào app ở config -> chỗ provider -> \Maatwebsite\Excel\ExcelServiceProvider::class,
+- chỗ aliases -> 'Excel' => \Maatwebsite\Excel\Facades\Excel::class,
+- chạy lệnh php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider"
+- nếu bị lỗi thì do phiên bản của mình đã bị củ quá không tương thích với PHP, để sửa lỗi này hãy vào composer.json sửa
+"require": {
+        "php": "^7.3|^8.0",
+        "fruitcake/laravel-cors": "^2.0",
+        "guzzlehttp/guzzle": "^7.0.1",
+        "laravel/framework": "^8.75",
+        "laravel/sanctum": "^2.11",
+        "laravel/tinker": "^2.5",
+        "maatwebsite/excel": "^3.1.x-dev"
+    },
+
+3.1x là phiên bản tương thích với laravel 7 hoặc 8 
+- rồi chạy lệnh composer update để cập nhật trong composer.json
+- nếu mà nó vẫn k hiểu thì vào ;extension=zip của php.init có biểu tượng bánh răng của php rồi xóa đi dấu chấm phẩy phía trước là được
+
 

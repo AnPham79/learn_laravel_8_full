@@ -13,6 +13,7 @@ use App\Http\Controllers\UploadControler;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\App;
 use App\paymentGateway\Payment;
 
@@ -121,3 +122,6 @@ Route::group(['prefix' => 'student', 'as' => 'student.'], function() {
 
 Route::get('/add-role', [RoleController::class, 'addRole'])->name('addRole');
 Route::get('/add-student', [RoleController::class, 'addStudent'])->name('addStudent');
+
+// Export Data in Excel and CSV
+Route::get('/add-employee', [EmployeeController::class, 'addEmployee'])->name('addEmployee');
