@@ -6,6 +6,11 @@ use App\Models\employee;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreemployeeRequest;
 use App\Http\Requests\UpdateemployeeRequest;
+use App\Exports\EmployeeExport;
+use App\Imports\EmployeeImport;
+use Maatwebsite\Excel\Excel;
+use Illuminate\Http\Request;
+
 
 class EmployeeController extends Controller
 {
@@ -27,6 +32,24 @@ class EmployeeController extends Controller
 
         return "thêm thông tin người lao động thành công";
     }
+
+    public function exportIntoExcel(Excel $excel) {
+        return $excel->download(new EmployeeExport, 'employeelist.xlsx');
+    }
+
+    public function exportIntoCSV(Excel $excel) {
+        return $excel->download(new EmployeeExport, 'employeelist.csv');
+    }
+
+    public function importForm() {
+        return view('import-form');
+    }
+
+    public function import(Request $request, Excel $excel) {
+        $excel->import(new EmployeeImport, $request->file);
+        return "tải file lên thành công";
+    }
+        
 
     /**
      * Show the form for creating a new resource.

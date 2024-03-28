@@ -120,6 +120,7 @@ bài 26: Export Data in Excel and CSV
 - chạy lệnh composer require maatwebsite/excel để tải package
 - vào app ở config -> chỗ provider -> \Maatwebsite\Excel\ExcelServiceProvider::class,
 - chỗ aliases -> 'Excel' => \Maatwebsite\Excel\Facades\Excel::class,
+- để đăng kí dịch vụ này thì chạy lệnh: 
 - chạy lệnh php artisan vendor:publish --provider="Maatwebsite\Excel\ExcelServiceProvider"
 - nếu bị lỗi thì do phiên bản của mình đã bị củ quá không tương thích với PHP, để sửa lỗi này hãy vào composer.json sửa
 "require": {
@@ -135,5 +136,46 @@ bài 26: Export Data in Excel and CSV
 3.1x là phiên bản tương thích với laravel 7 hoặc 8 
 - rồi chạy lệnh composer update để cập nhật trong composer.json
 - nếu mà nó vẫn k hiểu thì vào ;extension=zip của php.init có biểu tượng bánh răng của php rồi xóa đi dấu chấm phẩy phía trước là được
+- tạo lớp xuất file chạy lệnh php artisan make:export EmployeeExport --model=App\Models\employee
+- vào emoloyee controller use App\Exports\EmployeeExport;
+use Maatwebsite\Excel\Excel;
+use 2 file này
+- public function exportIntoExcel(Excel $excel) {
+        return $excel->download(new EmployeeExport, 'employeelist.xlsx');
+    }
 
+    public function exportIntoCSV(Excel $excel) {
+        return $excel->download(new EmployeeExport, 'employeelist.csv');
+    }
+- viết 2 phương thức xuất file
+
+- viết model để trấn xuất lấy dữ liệu 
+public static function getEmployee() {
+        $records =  DB::table('employees')->select('id', 'name', 'email', 'phone', 'department')->get()->toArray();
+
+        <!-- return $records; -->
+    }
+
+bài 27 : Export Data in PDF
+- cài gói package pdf composer require barryvdh/laravel-dompdf
+
+bài 28: Import Data From Excel and CSV
+- đàu tiên thì vẫn phải cài pagkage của CSV và Excel
+- tiếp theo vào app config đăng kí providers excel CSV thêm aliases
+- provider MaatWebsite\Excel\ExcelServiceProvider
+- 'Excel' => /'MaatWebsite/Excel/Facedes/Excel::class'
+- php artisan make:import EmployeeImport --model=Employee
+
+bài 28: Resize Image
+- đầu tiên cài đặt gói pagkage composer require intervention/image
+- vào app đăng kí dịch vụ ở provider 
+- php artisan vendor:publish --provider="Intervention\Image\ImageServiceProviderLaravel"
+- vào controller tạo 1 đường dẫn dẫn tới file
+- function resizeImage(Request $request) {
+    $image = $request->file;
+    $fileName = $image ->getClientOriginalName();
+    $image_resized = Image::make($image->getRealPath());
+    $image_resized->resize(300, 300);
+    $image_resized->save(public_path('images/'.$fileName));
+}
 

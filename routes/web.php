@@ -125,3 +125,14 @@ Route::get('/add-student', [RoleController::class, 'addStudent'])->name('addStud
 
 // Export Data in Excel and CSV
 Route::get('/add-employee', [EmployeeController::class, 'addEmployee'])->name('addEmployee');
+
+Route::get('/export-excel', [EmployeeController::class, 'exportIntoExcel'])->name('exportIntoExcel');
+
+Route::get('/export-csv', [EmployeeController::class, 'exportIntoCSV'])->name('exportIntoCSV');
+
+// form import
+Route::get('/import-form', [EmployeeController::class, 'importForm'])->name('importForm');
+
+Route::post('/import', [EmployeeController::class, 'import'])->name('import');
+
+
