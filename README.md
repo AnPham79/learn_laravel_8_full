@@ -179,3 +179,48 @@ bài 28: Resize Image
     $image_resized->save(public_path('images/'.$fileName));
 }
 
+bài 29: Dropzone image
+- kéo thả image vào vùng chỉ định
+- chủ yếu là tạo form dropzone bằng html css bootrap
+
+bài 30: Lazy image
+- anh load ra từ từ phù hợp với mắt người nhìn thây vì load hết
+
+bài 31: TinyMCE WYSIWYG HTML Editor
+CK eidttor
+
+bài 32 : CRUD với hình ảnh 
+- CRUD bình thường nhưng mà xóa thì 
+- unlink(public_path('images).'/'.$student->avatar)
+-student->delete
+
+bài 33: toaStr
+ <!-- - <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> -->
+ <!-- - <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"> -->
+ - npm install toastr
+ - import toastr from 'toastr';
+ - toastr.success("{!! session()->get('record') !!}");
+
+bài 34 :sweet Alert
+- tải cái này npm install sweetalert2
+- nhúng cái này<!-- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script> -->
+<!-- - <script>
+        $(document).ready(function() {
+            // Gọi hàm toastr.success() khi có session 'record'
+            toastr.success("{!! session()->get('record') !!}");
+
+            // Gọi hàm swal.fire() khi có session 'record'
+            Swal.fire({
+                icon: 'success',
+                title: 'nai sư sa su ke',
+                text: "{!! session()->get('record') !!}",
+                confirmButtonText: 'sục séc'
+            });
+        });
+    </script> -->
+
+bài 35: Contact Form
+- gửi mail
+
+
+

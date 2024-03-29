@@ -14,6 +14,11 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\DropzoneController;
+use App\Http\Controllers\GalleryController;
+use App\Http\Controllers\EditorController;
+use App\Http\Controllers\PersonController;
+use App\Http\Controllers\ConcatdumeController;
 use Illuminate\Support\Facades\App;
 use App\paymentGateway\Payment;
 
@@ -134,5 +139,20 @@ Route::get('/export-csv', [EmployeeController::class, 'exportIntoCSV'])->name('e
 Route::get('/import-form', [EmployeeController::class, 'importForm'])->name('importForm');
 
 Route::post('/import', [EmployeeController::class, 'import'])->name('import');
+
+// dropzone
+Route::get('/dropzone', [DropzoneController::class, 'dropzone'])->name('dropzone');
+Route::post('/dropzone-store', [DropzoneController::class, 'dropzoneStore'])->name('dropzoneStore');
+
+// lazy image
+Route::get('/gallery', [GalleryController::class, 'gallery'])->name('gallery');
+
+// editor
+Route::get('/editor', [EditorController::class, 'editor'])->name('editor');
+
+// CRUD image with person
+Route::get('/add-person', [ConcatdumeController::class, 'addPerson'])->name('add-person');
+Route::post('/add-person', [ConcatdumeController::class, 'storePerson'])->name('storePerson');
+
 
 
