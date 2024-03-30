@@ -154,5 +154,10 @@ Route::get('/editor', [EditorController::class, 'editor'])->name('editor');
 Route::get('/add-person', [ConcatdumeController::class, 'addPerson'])->name('add-person');
 Route::post('/add-person', [ConcatdumeController::class, 'storePerson'])->name('storePerson');
 
+// search auto
+Route::get('/search', [UserController::class, 'search'])->name('search');
+Route::get('/autocomplete', [UserController::class, 'autocomplete'])->name('autocomplete');
+
+
 
 

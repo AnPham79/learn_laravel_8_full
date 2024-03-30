@@ -164,6 +164,7 @@ return [
         App\Providers\PaymentServiceProvider::class,
         Maatwebsite\Excel\ExcelServiceProvider::class,
         // Intervention\Image\ImageServiceProvider::class,
+        Yajra\DataTables\DataTablesServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -234,5 +235,6 @@ return [
         'Payment' => App\paymentGateway\PaymentFacede::class,
         'Excel' => \Maatwebsite\Excel\Facades\Excel::class,
         // 'Image' => Intervention\Image\Facades\Image::class,
+        'Datatables' => Yajra\DataTables\Facades\DataTables::class,
     ],
 ];

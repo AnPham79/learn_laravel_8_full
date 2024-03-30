@@ -222,5 +222,8 @@ bài 34 :sweet Alert
 bài 35: Contact Form
 - gửi mail
 
+bài 36: data table
+- composer require yajra/laravel-datatables
+
 
 
