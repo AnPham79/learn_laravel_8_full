@@ -225,5 +225,28 @@ bài 35: Contact Form
 bài 36: data table
 - composer require yajra/laravel-datatables
 
+- popuo hiện lên thông báo:
+- <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script>
+            $(document).ready(function() {
+                $('#success-payment').submit(function(event) {
+                    event.preventDefault(); // Ngăn chặn gửi form mặc định
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Xác nhận thanh toán',
+                        text: 'Bạn có chắc chắn muốn thanh toán không?',
+                        showCancelButton: true,
+                        confirmButtonText: 'Xác nhận',
+                        cancelButtonText: 'Hủy bỏ'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            // Đoạn mã xử lý khi người dùng xác nhận thanh toán ở đây
+                            $('#success-payment')[0].submit(); // Gửi form
+                        }
+                    });
+                });
+            });
+        </script>
+
 
 
